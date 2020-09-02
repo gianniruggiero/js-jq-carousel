@@ -5,8 +5,28 @@ $(document).ready(function() {
   $(".next").click(imgNext);
 
   // *** PREV IMG ***
-  // al click su freccia sinistra mostra immagine successiva
+  // al click su freccia sinistra mostra immagine preedente
   $(".prev").click(imgPrev)
+
+  // KEYPRESS
+  // intercetta il valore del tasto premuto sulla tastiera
+  $(document).on("keydown", function (e) {
+    // *** NEXT IMG ***
+    // al click sul tasto ArrowRight mostra immagine successiva
+    if (e.which == 39) {
+      imgNext();
+    } else if (e.which == 37) {
+      // *** PREV IMG ***
+      // al click sul tasto ArrowLeft mostra immagine precedente
+      imgPrev();
+    }
+  })
+
+  // DEBUG
+  // $(document).on("keydown", function (e) {
+  //   console.log("hai schiacciato il tasto" + e.which);
+  //   console.log("hai schiacciato il tasto" + e.key);
+  // });
 
   // funzione che mostra l'immagine successiva del carousel;
   // se l'immagine al momento del click è l'ultima del carousel allora mostra la prima.
